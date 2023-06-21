@@ -8,7 +8,9 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from './redux/store'
 import { setAllProducts } from './redux/features/products/productsSlice'
-
+import HeroProduct from './home/HeroProduct'
+import Menu from './sharedComponents/menu/Menu'
+import FeaturedProducts from './home/featured products/FeaturedProducts'
 
 export default function Home() {
 
@@ -41,14 +43,17 @@ export default function Home() {
    
     <main className="">
 
-      home
+      <HeroProduct/>
 
+<Menu/>
+
+<FeaturedProducts/>
      
-     <nav className='flex flex-col bg-orange-500'>
+     {/* <nav className='flex flex-col bg-orange-500'>
       <Link href='/headphones'>headphones</Link>
       <Link href='/speakers'>speakers</Link>
       <Link href='/earphones'>earphones</Link>
-     </nav>
+     </nav> */}
         
       
     </main>

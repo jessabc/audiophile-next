@@ -20,10 +20,33 @@ export default function CartCounter({product}) {
    
 
   return (
-    <div>
-    <button onClick={decrement}>-</button>
-    <input type="text" value={cartCount}  onChange={(e) => (e.target.value) }disabled/>
-    <button onClick={increment}>+</button>
-  </div>
+
+    <div className={`grid grid-cols-3 bg-gray h-12`}>
+
+      <button 
+          className='font-bold text-sm text-center text-black opacity-25 hover:text-orange'  
+          onClick={decrement}>
+              -
+      </button>
+
+      <input 
+          className='font-bold text-sm text-center text-black bg-gray'  
+          
+          value={cartCount}  onChange={(e) => (e.target.value) }disabled/>
+
+      <button 
+          className='font-bold text-sm text-center text-black opacity-25 hover:text-orange' 
+          onClick={increment}
+      >
+          +
+      </button>
+  </div>  
+
+   
+  //   <div>
+  //   <button onClick={decrement}>-</button>
+  //   <input type="text" value={cartCount}  onChange={(e) => (e.target.value) }disabled/>
+  //   <button onClick={increment}>+</button>
+  // </div>
   )
 } 
