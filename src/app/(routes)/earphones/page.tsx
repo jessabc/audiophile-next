@@ -1,28 +1,45 @@
 "use client"
 
 import Image from 'next/image'
-import { RootState } from '../redux/store'
+import { RootState } from '../../_redux/store'
 import { useSelector, useDispatch } from 'react-redux'
-import Product from '../sharedComponents/Product'
-import Menu from '../sharedComponents/menu/Menu'
+import Product from '@/app/_components/Product'
+import Menu from '@/app/_components/menu/Menu'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
-export default function Earphones() {
-   const allProducts = useSelector((state: RootState) => state.products.value)
+
+
+export default async function Earphones() {
  
-  const earphones = allProducts.filter(product => product.category === 'earphones')
-  console.log(earphones)
-  const earphoneElements = earphones.map((item, index) => <Product key={item.id} item={item}/>)
+  // const allProducts = useSelector((state: RootState) => state.products.value)
+  // const earphones = allProducts.filter(product => product.category === 'earphones')
+ 
+  const [earphones, setearphones] = useState([])
+  useEffect(() => { 
+    const getProductData = async () => {
+      try {
+        const response = await axios.get('/api/products/earphones');
+        setearphones(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getProductData()
+  },[])
+   
+ 
+  const earphoneElements =  earphones.map((item, index) => <Product key={item.id} item={item}/>)
+
   return (
     <main className="">
+      <div className='bg-black '>
+            <h2 className='font-bold text-3xl text-center tracking-wider uppercase text-white py-10'>Earphones</h2>
+        </div>
 
-<div className='bg-black '>
-                <h2 className='font-bold text-3xl text-center tracking-wider uppercase text-white py-10'>Earphones</h2>
-            </div>
-
-            <div className='px-8 md:px-12 lg:px-32 mt-20 mb-52'>
-               
-                 {earphoneElements}
-            </div> 
+        <div className='px-8 md:px-12 lg:px-32 mt-20 mb-52'>
+          {earphoneElements}
+        </div> 
     
         <Menu/>
       

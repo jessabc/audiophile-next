@@ -2,19 +2,21 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import CartModal from '../modals/cart/CartModal'
+import CartModal from '@/app/_modals/cart/CartModal'
+import MenuModal from '@/app/_modals/menu/MenuModal'
+import { useRouter } from 'next/navigation';
 
-export const Header = () => {
+export default function  Header  () {
  
-
+  const router = useRouter();
   
   
   return (
     <>
-    <header className="fade-in flex justify-between bg-black px-8 py-10 border-b border-gray md:px-12 md:justify-start md:gap-10 lg:px-32 lg:gap-16">
+    <header className="fade-in flex justify-between bg-black px-8 py-10 border-b border-gray md:px-12 md:gap-10 lg:px-32 lg:gap-16">
 
       {/* hamburger on small screen */}
-      <button 
+      {/* <button 
         className="lg:hidden" 
        
       >
@@ -26,7 +28,11 @@ export const Header = () => {
           height={15}
           
         /> 
-      </button>
+      </button> */}
+      <div className='lg:hidden'>
+           <MenuModal/>
+      </div>
+   
 
       {/* audiophile logo */}
       <Link href='/'>
@@ -41,30 +47,30 @@ export const Header = () => {
     </Link>
 
       {/* nav on tablet and desktop */}
-      {/* <nav className="font-bold text-white text-sm leading-6 tracking-widest uppercase text-center hidden lg:block ">
+      <nav className="font-bold text-white text-sm leading-6 tracking-widest uppercase text-center hidden lg:block ">
         <ul className="flex flex-col gap-3 md:flex-row">
           <li className="hover:text-orange">
-            <NavLink to="/" 
-              className={({ isActive }) =>isActive ? 'text-orange' : undefined}>Home
-            </NavLink>
+            <Link href="/" 
+              className={router.pathname == "/" ? "text-orange" : ""}>Home
+            </Link>
           </li>
           <li className="hover:text-orange">
-            <NavLink to="/headphones" 
-              className={({ isActive }) => isActive ? 'text-orange' : undefined}>Headphones
-            </NavLink>
+            <Link href="/headphones" 
+             className={router.pathname == "/headphones" ? "text-orange" : ""}>Headphones
+            </Link>
           </li>
           <li className="hover:text-orange">
-            <NavLink to="/speakers" 
-              className={({ isActive }) => isActive ? 'text-orange' : undefined}>Speakers
-            </NavLink>
+            <Link href="/speakers" 
+              className={router.pathname == "/speaker" ? "text-orange" : ""}>Speakers
+            </Link>
           </li>
           <li className="hover:text-orange">
-            <NavLink to="/earphones" 
-              className={({ isActive }) => isActive ? 'text-orange' : undefined}>Earphones
-            </NavLink>
+            <Link href="/earphones" 
+              className={router.pathname == "/earphones" ? "text-orange" : ""}>Earphones
+            </Link>
           </li>
         </ul>
-      </nav> */}
+      </nav>
 
       {/* cart icon */}
     <CartModal/>

@@ -47,7 +47,8 @@ const {category, name, description, image, slug} = item
                   <button  
                       className='font-bold text-sm leading-5 tracking-wide uppercase text-white bg-orange w-40 h-12 hover:bg-lightOrange'  
                       onClick={()=>router.push(`/${item.category}/${item.slug}`)}>see product
-                  </button>  
+                  </button> 
+                 
               </div>
           </div>
   

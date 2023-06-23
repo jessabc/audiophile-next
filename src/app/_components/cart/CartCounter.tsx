@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import {useDispatch} from 'react-redux'
-import { decrementProductInCart, incrementProductInCart } from '@/app/redux/features/cart/cartSlice'
+import { decrementProductInCart, incrementProductInCart } from '@/app/_redux/features/cart/cartSlice'
 
 
 export default function CartCounter({product}) {

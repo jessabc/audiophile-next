@@ -1,4 +1,4 @@
-import CartItem from "../modals/cart/components/CartItem";
+import CartItem from '@/app/_components/cart/CartItem'
 
 
 

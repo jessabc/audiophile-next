@@ -1,5 +1,5 @@
 import React from 'react'
-import Counter from '../../../sharedComponents/Counter'
+import Counter from "@/app/_components/Counter"
 import CartCounter from './CartCounter'
 import CartItem from './CartItem'
 

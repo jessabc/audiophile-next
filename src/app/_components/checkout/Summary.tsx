@@ -1,7 +1,7 @@
 "use client"
 import {useSelector, useDispatch} from 'react-redux'
-import SummaryCartItem from '../sharedComponents/SummaryCartItem'
-import { useGetTotal } from '../hooks/useGetTotal'
+import SummaryCartItem from './SummaryCartItem'
+import { useGetTotal } from '@/app/_hooks/useGetTotal'
 
 export default function Summary() {
 

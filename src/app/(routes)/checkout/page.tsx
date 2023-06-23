@@ -1,6 +1,6 @@
 import React from 'react'
-import Form from './Form'
-import Summary from './Summary'
+import Form from '@/app/_components/checkout/Form'
+import Summary from '@/app/_components/checkout/Summary'
 
 export default function Checkout() {
   return (

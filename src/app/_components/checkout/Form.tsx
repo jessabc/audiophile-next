@@ -5,7 +5,7 @@ import * as yup from "yup"
 import { useState } from "react"
 import Summary from "./Summary"
 import Link from 'next/link'
-import ConfirmationModal from "../modals/confirmation/ConfirmationModal"
+import ConfirmationModal from "@/app/_modals/confirmation/ConfirmationModal"
 
 const schema = yup.object({
     name: yup.string().required('Name is a required field'),

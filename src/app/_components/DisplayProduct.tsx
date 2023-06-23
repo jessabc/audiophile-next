@@ -3,9 +3,10 @@ import React, {useState} from 'react'
 import { Product } from '../interfaces'
 import Counter from './Counter'
 import {useDispatch, useSelector} from 'react-redux'
-import { addProductToCart, updateProductQuantityInCart } from '../redux/features/cart/cartSlice'
+import { addProductToCart, updateProductQuantityInCart } from '@/app/_redux/features/cart/cartSlice'
 import Link from 'next/link'
 import OtherProductYouMayLike from './OtherProductYouMayLike'
+import ItemAddedModal from '../_modals/itemAdded/ItemAddedModal'
 
 // interface Props {
 //     product: Product
@@ -34,9 +35,9 @@ export default function DisplayProduct({product}) {
 
    const {image, name, description, price, features, includes, gallery, others} = product
 
-   const featuresEl = features.split('\n\n').map((paragraph: string, index:number) => <p key={index} className="mb-3">{paragraph}</p>)
+   const featuresEl = features?.split('\n\n').map((paragraph: string, index:number) => <p key={index} className="mb-3">{paragraph}</p>)
 
-   const youMayAlsoLikeElements = others.map((product, index) => <OtherProductYouMayLike key={index} product={product} />)
+   const youMayAlsoLikeElements = others?.map((product, index) => <OtherProductYouMayLike key={index} product={product} />)
 // console.log(others)
     
   return (
@@ -60,9 +61,9 @@ export default function DisplayProduct({product}) {
         <div className="fade-in md:flex md:gap-5 lg:gap-20">
 
             <div className="md:w-1/2">
-                <img src={`.${image.mobile}`} alt={`${name} image`}  className="md:hidden lg:hidden"/>
-                <img src={`.${image.tablet}`} alt={`${name} image`}  className=" hidden md:block lg:hidden"/>
-                <img src={`.${image.desktop}`} alt={`${name} image`} className="hidden md:hidden lg:block"/>
+                <img src={`.${image?.mobile}`} alt={`${name} image`}  className="md:hidden lg:hidden"/>
+                <img src={`.${image?.tablet}`} alt={`${name} image`}  className=" hidden md:block lg:hidden"/>
+                <img src={`.${image?.desktop}`} alt={`${name} image`} className="hidden md:hidden lg:block"/>
             </div>
         
             <div className=" flex flex-col gap-5 py-5 md:w-1/2 md:justify-center md:gap-10 lg:pr-20">
@@ -76,12 +77,14 @@ export default function DisplayProduct({product}) {
                     </div>
              
 
-                    <button 
+                    {/* <button 
                         className='w-1/2 font-bold text-sm leading-5 tracking-wide uppercase text-white bg-orange h-12 hover:bg-lightOrange'  
                         onClick={addToCart}
                     >
                         add to cart
-                    </button>
+                    </button> */}
+                    <ItemAddedModal addToCart={addToCart}
+                    productName={product.name}/>
                 </div>
             </div> 
 
@@ -107,8 +110,8 @@ export default function DisplayProduct({product}) {
                     <ul className="list-none md:w-1/2 lg:w-full">
                         {includes.map((item, index) => 
                         <li key={index} className="my-2 lg:mt-0 lg:mb-5">
-                            <span className="font-bold text-orange">{item.quantity}x </span>  
-                            <span className="font-medium text-black opacity-50 ml-2"> {item.item}</span>
+                            <span className="font-bold text-orange">{item?.quantity}x </span>  
+                            <span className="font-medium text-black opacity-50 ml-2"> {item?.item}</span>
                         </li>)}
                     </ul>
                 </div>
@@ -121,16 +124,16 @@ export default function DisplayProduct({product}) {
                  
                 <div className="md:w-1/2 flex flex-col gap-5 md:justify-between  ">
                     {/* <FadeInLeftSection> */}
-                        <img src={`.${gallery.first.mobile}`} alt={`${name} image`} className="rounded-lg "/>
+                        <img src={`.${gallery?.first.mobile}`} alt={`${name} image`} className="rounded-lg "/>
                     {/* </FadeInLeftSection> */}
                     {/* <FadeInLeftSection> */}
-                        <img src={`.${gallery.second.mobile}`} alt={`${name} image`} className="rounded-lg"/>
+                        <img src={`.${gallery?.second.mobile}`} alt={`${name} image`} className="rounded-lg"/>
                     {/* </FadeInLeftSection> */}
                 </div>
 
                <div className="md:w-1/2">
                     {/* <FadeInRightSection> */}
-                        <img src={`.${gallery.third.mobile}`} alt={`${name} image`} className="rounded-lg"/>
+                        <img src={`.${gallery?.third.mobile}`} alt={`${name} image`} className="rounded-lg"/>
                     {/* </FadeInRightSection> */}
                </div>
              

@@ -1,53 +1,40 @@
 "use client"
-
 import Image from 'next/image'
 import Link from 'next/link'
 import axios from 'axios'
-
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { RootState } from './redux/store'
-import { setAllProducts } from './redux/features/products/productsSlice'
-import HeroProduct from './home/HeroProduct'
-import Menu from './sharedComponents/menu/Menu'
-import FeaturedProducts from './home/featured products/FeaturedProducts'
+import { RootState } from './_redux/store'
+import { setAllProducts } from './_redux/features/products/productsSlice'
+import HeroProduct from './_components/home/HeroProduct'
+import Menu from './_components/menu/Menu'
+import FeaturedProducts from './_components/home/featured products/FeaturedProducts'
+
+
+
 
 export default function Home() {
 
-  // const [allProductData, setAllProductData] = useState([])
-  // console.log(allProductData)
-
-  // const allProducts = useSelector((state: RootState) => state.products.value)
   const dispatch = useDispatch()
  
-
-
-  useEffect(() => {
-    const getProductData = async () => {
-  
-      try {
-        const response = await axios.get('/data.json');
-        
-        // setAllProductData(response.data) 
-        dispatch(setAllProducts(response.data))
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    getProductData()
-  },[])
+  // useEffect(() => {
+  //   const getProductData = async () => {
+  //     try {
+  //       const response = await axios.get('/api/products');
+  //       dispatch(setAllProducts(response.data))
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+  //   getProductData()
+  // },[])
 
 
   return (
-   
     <main className="">
-
       <HeroProduct/>
-
-<Menu/>
-
-<FeaturedProducts/>
+      <Menu/>
+      <FeaturedProducts/>
      
      {/* <nav className='flex flex-col bg-orange-500'>
       <Link href='/headphones'>headphones</Link>

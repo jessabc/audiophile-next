@@ -1,24 +1,40 @@
 "use client"
-import DisplayProduct from '@/app/sharedComponents/DisplayProduct'
-import { RootState } from '@/app/redux/store'
+import DisplayProduct from '@/app/_components/DisplayProduct'
+import { RootState} from '@/app/_redux/store'
 import Image from 'next/image'
 import {useSelector} from 'react-redux'
-import Menu from '@/app/sharedComponents/menu/Menu'
-
+import Menu from '@/app/_components/menu/Menu'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+ 
 
 export default function Earphone({params}) {
+  
+  // const allProducts = useSelector((state: RootState) => state.products.value)
+  // const thisProduct = allProducts.find(product => product.slug === params.slug)
+  
+  const [thisProduct, setThisProduct] = useState()
  
-  const allProducts = useSelector((state: RootState) => state.products.value)
-  const thisProduct = allProducts.find(product => product.slug === params.slug)
-console.log(thisProduct)
+  useEffect(() => { 
+    const getProductData = async () => {
+      try {
+        const response = await axios.get(`/api/products/earphones/${params.slug}`);
+     
+        setThisProduct(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+    } 
+    getProductData()
+  },[])
 
   return (
     <main className="">
 
       {/* earphones with {params.slug} */}
-    
-        <DisplayProduct product={thisProduct}/>
-        <Menu/>
+  
+      <DisplayProduct product={thisProduct}/>
+      <Menu/>
     </main>
   )
 }

@@ -3,19 +3,16 @@ import React from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import Image from 'next/image'
 import {useSelector, useDispatch} from 'react-redux'
-import CartProduct from './components/CartProduct';
-import { removalAllFromCart } from '@/app/redux/features/cart/cartSlice';
+import CartProduct from '../../_components/cart/CartProduct';
+import { removalAllFromCart } from '@/app/_redux/features/cart/cartSlice';
 import { useRouter } from 'next/navigation';
-import { useGetTotal } from '@/app/hooks/useGetTotal';
+import { useGetTotal } from '@/app/_hooks/useGetTotal';
 
 export default function Modal2 () {
-const dispatch = useDispatch()
-const router = useRouter()
+  const dispatch = useDispatch()
+  const router = useRouter()
   const cart = useSelector(state => state.cart.value)
- const cartElements = cart.map(product => <CartProduct key={product.id} product={product}/>)
-//  const total= cart.reduce((acc, curr) => {
-//     return acc = curr.quantity * curr.price
-//  },0)
+  const cartElements = cart.map(product => <CartProduct key={product.id} product={product}/>)
 
  function checkout() {
   router.push('/checkout')

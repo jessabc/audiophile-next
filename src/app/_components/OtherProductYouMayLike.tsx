@@ -21,7 +21,6 @@ export default function OtherProductYouMayLike({product}) {
 
     // find catergory
     const products = useSelector(state => state.products.value)
-    console.log(products)
     const thisProduct = products.find(item => item.slug === product.slug)
    
     // const navigate = useNavigate()

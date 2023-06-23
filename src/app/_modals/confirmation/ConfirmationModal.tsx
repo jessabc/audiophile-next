@@ -1,9 +1,9 @@
 "use client"
 import React, {useState} from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import SummaryCartItem from '@/app/sharedComponents/SummaryCartItem';
+import SummaryCartItem from '@/app/_components/checkout/SummaryCartItem';
 import {useSelector, useDispatch} from 'react-redux'
-import { useGetTotal } from '@/app/hooks/useGetTotal';
+import { useGetTotal } from '@/app/_hooks/useGetTotal';
 import {useRouter} from 'next/navigation'
 
 const ConfirmationModal = ({open, setOpen}) => {
