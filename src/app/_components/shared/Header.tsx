@@ -5,11 +5,12 @@ import Link from 'next/link'
 import CartModal from '@/app/_modals/cart/CartModal'
 import MenuModal from '@/app/_modals/menu/MenuModal'
 import { useRouter } from 'next/navigation';
+import useWindowSize from '@/app/_hooks/useWindowSize'
 
 export default function  Header  () {
  
   const router = useRouter();
-  
+  const { width } = useWindowSize();
   
   return (
     <>
@@ -29,9 +30,10 @@ export default function  Header  () {
           
         /> 
       </button> */}
-      <div className='lg:hidden'>
+      {width < 1024 &&
            <MenuModal/>
-      </div>
+      
+      }
    
 
       {/* audiophile logo */}

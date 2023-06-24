@@ -14,30 +14,30 @@ import CategoryInMenuModal from './CategoryInMenuModal'
 
 // {isMenuModalVisible, setIsMenuModalVisible}: MenuProps
 export default function MenuInModal
-() {
+({setOpen}) {
 
     return (
-        <section className={` md:mx-12 md:grid md:grid-cols-3 gap-2  lg:mx-32 mt-28`}  > 
+        <section className={`md:mx-12 md:grid md:grid-cols-3 gap-2  lg:mx-32 mt-10 `}  > 
  
-        <CategoryInMenuModal 
-            image='/assets/shared/desktop/image-category-thumbnail-headphones.png' 
-            link='headphones'
-            
-        />
+                <CategoryInMenuModal 
+                    image='/assets/shared/desktop/image-category-thumbnail-headphones.png' 
+                    link='headphones'
+                    setOpen={setOpen}
+                />
 
-        <CategoryInMenuModal 
-            image='/assets/shared/desktop/image-category-thumbnail-speakers.png'
-            link='speakers'
-            
-        />
+                <CategoryInMenuModal 
+                    image='/assets/shared/desktop/image-category-thumbnail-speakers.png'
+                    link='speakers'
+                    setOpen={setOpen}
+                />
 
-        <CategoryInMenuModal 
-            image='/assets/shared/desktop/image-category-thumbnail-earphones.png' 
-            link='earphones'
-            
-        />
+                <CategoryInMenuModal 
+                    image='/assets/shared/desktop/image-category-thumbnail-earphones.png' 
+                    link='earphones'
+                    setOpen={setOpen}
+                />
 
-    </section>
+            </section>
 
        
     )
