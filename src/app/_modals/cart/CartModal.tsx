@@ -7,6 +7,9 @@ import CartProduct from '../../_components/cart/CartProduct';
 import { removalAllFromCart } from '@/app/_redux/features/cart/cartSlice';
 import { useRouter } from 'next/navigation';
 import { useGetTotal } from '@/app/_hooks/useGetTotal';
+import iconCart from '../../../../public/assets/shared/desktop/icon-cart.svg'
+import { ImageOptimizerCache } from 'next/dist/server/image-optimizer';
+import { numItemsInCart } from '@/app/_helpers/numItemsInCart';
 
 export default function Modal2 () {
   const dispatch = useDispatch()
@@ -18,16 +21,20 @@ export default function Modal2 () {
   router.push('/checkout')
  }
 
+ 
+
     return (
         <Dialog.Root>
         <Dialog.Trigger asChild>
           <button className="">
           <Image
-              className=""
-              src="/assets/shared/desktop/icon-cart.svg"
-              alt="hamburger icon"
-              width={23}
-              height={20}
+              src={iconCart}
+              alt="cart icon"
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="w-full h-auto"
+                      
               
             /> 
           </button>
@@ -50,7 +57,7 @@ export default function Modal2 () {
 
 {/* cart num and remove all line */}
 <div className="flex justify-between">
-   <p className='font-bold tracking-wider uppercase text-black'>Cart ({cart.length})</p>
+   <p className='font-bold tracking-wider uppercase text-black'>Cart ({numItemsInCart()})</p>
 
    <Dialog.Close asChild>
    <button

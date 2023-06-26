@@ -7,10 +7,13 @@ import { decrementProductInCart, incrementProductInCart } from '@/app/_redux/fea
 export default function CartCounter({product}) {
     const [cartCount, setCartCount] = useState(product.quantity)
     const dispatch = useDispatch()
-
+console.log('cartcounter rendr')
     function decrement() {
-       setCartCount(prev => prev -1)
+      if(cartCount > 0) {
+        setCartCount(prev => prev -1)
        dispatch(decrementProductInCart(product))
+      }
+       
     }
 
     function increment(){

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-
+import logo from '../../../../public/assets/shared/desktop/logo.svg'
 export default function Footer() {
 
     return  (
@@ -8,17 +8,27 @@ export default function Footer() {
             <footer className="bg-dark flex flex-col justify-center items-center px-8 py-20 gap-14 md:px-12 md:items-start lg:px-32">
 
               <div className="bg-orange w-1/3 h-1 absolute top-0 md:w-1/5 md:left-0 lg:ml-32 lg:w-24"></div>
-
-              <div className="lg:flex lg:justify-between ">
+ 
+              <div className="lg:flex md:justify-between md:w-full">
                 
                 {/* logo */}
                 <Image
-                src='/assets/shared/desktop/logo.svg'
+        
+        src={logo}
+        alt="audiophile logo"
+        width="0"
+        height="0"
+        sizes="100vw"
+        className=" mb-14 lg:mb-0"
+        
+      /> 
+                {/* <Image
+                src=
                 alt="audiophile logo"
                 width="0"
                 height="0"
           sizes="100vw" className="w-full h-auto mb-14 lg:mb-0"
-                />
+                /> */}
                 {/* <img src={logo} alt="audiophile logo" className="mb-14 lg:mb-0"/> */}
 
                 {/* nav */}

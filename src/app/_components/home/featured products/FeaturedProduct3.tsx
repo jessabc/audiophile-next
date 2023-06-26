@@ -4,6 +4,8 @@
 // import {ProductContext} from '../../ProductContext'
 // import { IProduct } from '../../interfaces'
 import { useRouter } from "next/navigation"
+import Image from 'next/image'
+import { FadeInBottomSection } from "@/app/_animations/FadeInBottomSection"
 
 export default function FeaturedProduct3() {
 
@@ -23,13 +25,34 @@ export default function FeaturedProduct3() {
 
     return (
         <>
-          {/* <FadeInBottomSection> */}
+          <FadeInBottomSection>
             <div className={`mx-8 md:grid md:grid-cols-2 md:gap-2 md:mx-12 lg:mx-32`} >
 
                 <div className='md:w-fit '>
-                    <img src={'assets/home/mobile/image-earphones-yx1.jpg'} alt="YX1 Wireless Earphones"  className='rounded-lg md:hidden lg:hidden'/>
+                <Image
+                src={'/assets/home/mobile/image-earphones-yx1.jpg'}
+                width="0"
+                height="0"
+                sizes="100vw"
+                alt="YX1 Wireless Earphones"   className='w-full  rounded-lg md:hidden lg:hidden'
+                />
+                <Image
+                src={'/assets/home/tablet/image-earphones-yx1.jpg'}
+                width="0"
+                height="0"
+                sizes="100vw"
+                alt="YX1 Wireless Earphones"   className='w-full  rounded-lg hidden md:block lg:hidden'
+                />
+                <Image
+                src={'/assets/home/desktop/image-earphones-yx1.jpg'}
+                width="0"
+                height="0"
+                sizes="100vw"
+                alt="YX1 Wireless Earphones"   className='w-full  rounded-lg hidden lg:block '
+                />
+                    {/* <img src={'assets/home/mobile/image-earphones-yx1.jpg'} alt="YX1 Wireless Earphones"  className='rounded-lg md:hidden lg:hidden'/>
                     <img src={'assets/home/tablet/image-earphones-yx1.jpg'} alt="YX1 Wireless Earphones" className='rounded-lg hidden md:block lg:hidden'/>
-                    <img src={'assets/home/desktop/image-earphones-yx1.jpg'} alt="YX1 Wireless Earphones" className='rounded-lg hidden lg:block '/> 
+                    <img src={'assets/home/desktop/image-earphones-yx1.jpg'} alt="YX1 Wireless Earphones" className='rounded-lg hidden lg:block '/>  */}
                 </div>
 
                 <div className="bg-gray rounded-lg mt-5 mb-20 h-48 flex flex-col gap-5 justify-center items-start pl-5 
@@ -43,7 +66,7 @@ export default function FeaturedProduct3() {
                     </button>
                 </div>
             </div>
-        {/* </FadeInBottomSection> */}
+        </FadeInBottomSection>
 
     </>
     )

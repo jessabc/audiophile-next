@@ -1,5 +1,7 @@
 import * as React from 'react';
 import * as Toast from '@radix-ui/react-toast';
+import Image from 'next/image';
+import IconOrderConfirmation from '../../../../public/assets/checkout/icon-order-confirmation.svg'
 
 const ItemAddedModal = ({addToCart, productName}) => {
   const [open, setOpen] = React.useState(false);
@@ -36,7 +38,15 @@ const ItemAddedModal = ({addToCart, productName}) => {
 
         <div className='flex '>
                     <div className='w-10 mr-5'>
-                       <img src='/assets/checkout/icon-order-confirmation.svg'/>
+                       {/* <img src='/assets/checkout/icon-order-confirmation.svg'/> */}
+                       <Image
+                       src={IconOrderConfirmation}
+                       width="0"
+                       height="0"
+                       sizes="100vw"
+                       className="w-full h-auto"
+                       alt="confirmation check"
+                       />
 
                     </div>
                     <div className=''>

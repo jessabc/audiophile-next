@@ -4,6 +4,7 @@
 // import categoryEarphones from '/src/assets/shared/desktop/image-category-thumbnail-earphones.png'
 // import { FadeInBottomSection } from "../../animation/FadeInBottomSection"
 
+import { FadeInBottomSection } from "@/app/_animations/FadeInBottomSection";
 import Category from "./Category";
 
 
@@ -16,6 +17,7 @@ import Category from "./Category";
 export default function Menu() {
 
     return (
+        <FadeInBottomSection>
             <section className={`md:mx-12 md:grid md:grid-cols-3 gap-2  lg:mx-32 `}  > 
  
                 <Category 
@@ -37,6 +39,6 @@ export default function Menu() {
                 />
 
             </section>
-       
+            </FadeInBottomSection>
     )
 }

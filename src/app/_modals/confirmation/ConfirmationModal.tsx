@@ -5,11 +5,14 @@ import SummaryCartItem from '@/app/_components/checkout/SummaryCartItem';
 import {useSelector, useDispatch} from 'react-redux'
 import { useGetTotal } from '@/app/_hooks/useGetTotal';
 import {useRouter} from 'next/navigation'
+import IconOrderConfirmation from '../../../../public/assets/checkout/icon-order-confirmation.svg'
+import Image from 'next/image';
+import { removalAllFromCart } from '@/app/_redux/features/cart/cartSlice';
 
 const ConfirmationModal = ({open, setOpen}) => {
     const [showAllCartItems, setShowAllCartItems] = useState(false)
     const cart = useSelector(state => state.cart.value)
-   
+   const dispatch = useDispatch()
 
     const router = useRouter()
     const firstCartItemElement = <SummaryCartItem item={cart[0]}/>
@@ -19,7 +22,10 @@ const ConfirmationModal = ({open, setOpen}) => {
 
     const total = useGetTotal()
 
-
+function backHome() {
+  router.push('/')
+  dispatch(removalAllFromCart())
+}
 
     return (
         <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -31,8 +37,16 @@ const ConfirmationModal = ({open, setOpen}) => {
 
   {/* MODAL CONTENT */}
   <div className='flex flex-col gap-3 justify-start items-start'>
-                    <img src='/assets/checkout/icon-order-confirmation.svg'
-alt="check icon" className='w-14'/>
+                    {/* <img src='/assets/checkout/icon-order-confirmation.svg'
+alt="check icon" className='w-14'/> */}
+<Image
+                       src={IconOrderConfirmation}
+                       width="0"
+                       height="0"
+                       sizes="100vw"
+                       className="w-14 h-auto"
+                       alt="confirmation check"
+                       />
                     <p className='font-bold text-2xl leading-7 track uppercase text-black'>THANK YOU <br/>
                     FOR YOUR ORDER</p>
                     <p className='font-medium leading-6 text-black opacity-50'>You will receive an email confirmation shortly.</p>
@@ -63,7 +77,7 @@ alt="check icon" className='w-14'/>
             
                     <button
                       className='font-bold text-sm leading-5 tracking-wide uppercase text-white bg-orange w-full h-12 hover:bg-lightOrange'
-                      onClick={()=>router.push('/')}
+                      onClick={backHome}
                     >
                       back to home
                     </button>

@@ -7,13 +7,18 @@ import { addProductToCart, updateProductQuantityInCart } from '@/app/_redux/feat
 import Link from 'next/link'
 import OtherProductYouMayLike from './OtherProductYouMayLike'
 import ItemAddedModal from '../_modals/itemAdded/ItemAddedModal'
+import Image from 'next/image'
+import { FadeInLeftSection } from '../_animations/FadeInLeftSection'
+import { FadeInRightSection } from '../_animations/FadeInRightSection'
+import { FadeInBottomSection } from '../_animations/FadeInBottomSection'
+import { useRouter } from 'next/navigation'
 
 // interface Props {
 //     product: Product
 // }
  
 export default function DisplayProduct({product}) {
-
+console.log('display rendered')
     const [count, setCount] = useState(0)
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart.value)
@@ -31,7 +36,7 @@ export default function DisplayProduct({product}) {
         dispatch(addProductToCart({...product, quantity: count}))
     }
     
-   }
+   } 
 
    const {image, name, description, price, features, includes, gallery, others} = product
 
@@ -39,7 +44,15 @@ export default function DisplayProduct({product}) {
 
    const youMayAlsoLikeElements = others?.map((product, index) => <OtherProductYouMayLike key={index} product={product} />)
 // console.log(others)
+const router = useRouter()
+function goBack() {
+     router.back()
+     setTimeout(() => {
+         window.scrollTo(0,0)
+     },100)
     
+}
+
   return (
     // <div>
         
@@ -52,18 +65,42 @@ export default function DisplayProduct({product}) {
     <div className="px-8 md:px-12 lg:px-32">
 
     {/* go back button link */}
-    <div className=" fade-in font-medium text-black opacity-50 py-5">
-       <Link href=".."  >Go Back</Link> 
-    </div>
+    <button type='button' className=" fade-in font-medium text-black opacity-50 py-5" onClick={goBack}>
+       Go Back
+    </button>
     
     <div>
 
-        <div className="fade-in md:flex md:gap-5 lg:gap-20">
+        <div className="md:flex md:gap-5 lg:gap-20">
 
             <div className="md:w-1/2">
-                <img src={`.${image?.mobile}`} alt={`${name} image`}  className="md:hidden lg:hidden"/>
+            <Image
+                src={`/${image.mobile}`}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto md:hidden lg:hidden"
+                alt={`${name} image`} 
+                />
+                <Image
+                src={`/${image.tablet}`}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto hidden md:block lg:hidden"
+                alt={`${name} image`} 
+                />
+                 <Image
+                src={`/${image.desktop}`}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto hidden md:hidden lg:block"
+                alt={`${name} image`} 
+                />
+                {/* <img src={`.${image?.mobile}`} alt={`${name} image`}  className="md:hidden lg:hidden"/>
                 <img src={`.${image?.tablet}`} alt={`${name} image`}  className=" hidden md:block lg:hidden"/>
-                <img src={`.${image?.desktop}`} alt={`${name} image`} className="hidden md:hidden lg:block"/>
+                <img src={`.${image?.desktop}`} alt={`${name} image`} className="hidden md:hidden lg:block"/> */}
             </div>
         
             <div className=" flex flex-col gap-5 py-5 md:w-1/2 md:justify-center md:gap-10 lg:pr-20">
@@ -74,6 +111,7 @@ export default function DisplayProduct({product}) {
                 <div className="flex gap-3">
                     <div  className='w-1/2'>
                            <Counter count={count} setCount={setCount}/>
+                          
                     </div>
              
 
@@ -93,18 +131,18 @@ export default function DisplayProduct({product}) {
         <div className="lg:flex lg:gap-10 lg:mb-20">
 
             <div className="lg:w-2/3 fade-in">
-                {/* <FadeInLeftSection> */}
+                <FadeInLeftSection>
                     <div className="flex flex-col gap-5 mt-10">
                         <p className=' font-bold text-2xl tracking-wide uppercase text-black md:text-3xl'>Features:</p>
                         <div className="font-medium leading-6 text-black opacity-50 lg:pr-10">
                             {featuresEl}
                         </div>
                     </div>
-               {/* </FadeInLeftSection> */}
+               </FadeInLeftSection>
             </div>
 
             {/* in the box */}
-            {/* <FadeInRightSection> */}
+            <FadeInRightSection>
                 <div className="fade-in flex flex-col gap-5 mt-10 mb-20 md:flex-row lg:flex-col ">
                     <p className=' font-bold text-2xl tracking-wide uppercase text-black md:text-3xl md:w-1/2 lg:w-full'>in the box</p>
                     <ul className="list-none md:w-1/2 lg:w-full">
@@ -115,7 +153,7 @@ export default function DisplayProduct({product}) {
                         </li>)}
                     </ul>
                 </div>
-            {/* </FadeInRightSection> */}
+            </FadeInRightSection>
         </div>
 
         <div className="mb-20">
@@ -123,18 +161,42 @@ export default function DisplayProduct({product}) {
             <div className=" flex flex-col md:flex-row gap-5">
                  
                 <div className="md:w-1/2 flex flex-col gap-5 md:justify-between  ">
-                    {/* <FadeInLeftSection> */}
-                        <img src={`.${gallery?.first.mobile}`} alt={`${name} image`} className="rounded-lg "/>
-                    {/* </FadeInLeftSection> */}
-                    {/* <FadeInLeftSection> */}
-                        <img src={`.${gallery?.second.mobile}`} alt={`${name} image`} className="rounded-lg"/>
-                    {/* </FadeInLeftSection> */}
+                    <FadeInLeftSection>
+                    <Image
+                src={`/${gallery?.first.mobile}`}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto rounded-lg"
+                alt={`${name} image`} 
+                />
+                        {/* <img src={`.${gallery?.first.mobile}`} alt={`${name} image`} className="rounded-lg "/> */}
+                    </FadeInLeftSection>
+                    <FadeInLeftSection>
+                    <Image
+                src={`/${gallery?.second.mobile}`}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto rounded-lg"
+                alt={`${name} image`} 
+                />
+                        {/* <img src={`.${gallery?.second.mobile}`} alt={`${name} image`} className="rounded-lg"/> */}
+                    </FadeInLeftSection>
                 </div>
 
                <div className="md:w-1/2">
-                    {/* <FadeInRightSection> */}
-                        <img src={`.${gallery?.third.mobile}`} alt={`${name} image`} className="rounded-lg"/>
-                    {/* </FadeInRightSection> */}
+                    <FadeInRightSection>
+                    <Image
+                src={`/${gallery?.third.mobile}`}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto rounded-lg"
+                alt={`${name} image`} 
+                />
+                        {/* <img src={`.${gallery?.third.mobile}`} alt={`${name} image`} className="rounded-lg"/> */}
+                    </FadeInRightSection>
                </div>
              
             </div>
@@ -142,12 +204,12 @@ export default function DisplayProduct({product}) {
         </div>
 
         <div className="mb-44">
-            {/* <FadeInBottomSection> */}
+            <FadeInBottomSection>
                 <p className='font-bold text-2xl tracking-wide uppercase text-black mb-12 text-center'>you may also like </p>
                 <div className="md:flex md:gap-5" >
                     {youMayAlsoLikeElements}   
                 </div>
-            {/* </FadeInBottomSection> */}
+            </FadeInBottomSection>
         </div>
         
         {/* {isItemAddedModalVisible && 

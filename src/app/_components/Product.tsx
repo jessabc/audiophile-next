@@ -5,10 +5,12 @@
 
 
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { Product } from '../interfaces'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { FadeInBottomSection } from '../_animations/FadeInBottomSection'
+import Counter from './Counter'
 
 
 
@@ -31,12 +33,36 @@ const {category, name, description, image, slug} = item
    
 
     return (
-     
+        <FadeInBottomSection>
           <div className="mb-28 flex flex-col gap-5 justify-center items-center lg:flex-row lg:gap-10">
               <div className={`lg:w-1/2 ${oddIndex ? 'lg:order-1' : null}`}>
-                  <img src={image.mobile} alt={`${name} image`} className="md:hidden lg:hidden rounded-lg"/>
-                  <img src={image.tablet} alt={`${name} image`}  className="hidden md:block lg:hidden rounded-lg" />
-                  <img src={image.desktop} alt={`${name} image`}  className="hidden md:hidden lg:block rounded-lg"/>  
+              <Image
+                src={`/${image.mobile}`}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto md:hidden lg:hidden rounded-lg"
+                alt={`${name} image`} 
+                />
+                 <Image
+                src={`/${image.tablet}`}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto hidden md:block lg:hidden rounded-lg"
+                alt={`${name} image`} 
+                />
+                 <Image
+                src={`/${image.desktop}`}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto hidden md:hidden lg:block rounded-lg"
+                alt={`${name} image`} 
+                />
+                  {/* <img src={image.mobile} alt={`${name} image`} className="md:hidden lg:hidden rounded-lg"/> */}
+                  {/* <img src={image.tablet} alt={`${name} image`}  className="hidden md:block lg:hidden rounded-lg" />
+                  <img src={image.desktop} alt={`${name} image`}  className="hidden md:hidden lg:block rounded-lg"/>   */}
               </div>
           
               <div className=" flex flex-col gap-5 justify-center items-center lg:w-1/2 lg:items-start">
@@ -48,10 +74,11 @@ const {category, name, description, image, slug} = item
                       className='font-bold text-sm leading-5 tracking-wide uppercase text-white bg-orange w-40 h-12 hover:bg-lightOrange'  
                       onClick={()=>router.push(`/${item.category}/${item.slug}`)}>see product
                   </button> 
-                 
+                
               </div>
+            
           </div>
-  
+          </FadeInBottomSection>
   )
 }
 

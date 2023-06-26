@@ -3,14 +3,27 @@ import React, { useState } from 'react'
 
 export default function Counter({count, setCount}) {
     
+console.log('counter renderd')
 
+function decrement() {
+    if(count > 0) {
+      setCount(prev => prev -1)
+    
+    }
+     
+  }
+
+  function increment(){
+    setCount(prev => prev +1) 
+  }
+ 
 
     return (
       <div className={`grid grid-cols-3 bg-gray h-12`}>
 
       <button 
           className='font-bold text-sm text-center text-black opacity-25 hover:text-orange'  
-          onClick={()=>setCount(prev => prev - 1)}>
+          onClick={decrement}>
               -
       </button>
 
@@ -22,7 +35,7 @@ export default function Counter({count, setCount}) {
 
       <button 
           className='font-bold text-sm text-center text-black opacity-25 hover:text-orange' 
-          onClick={()=>setCount(prev => prev + 1)}
+          onClick={increment}
       >
           +
       </button>

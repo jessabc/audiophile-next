@@ -6,6 +6,9 @@ import { useState } from "react"
 import Summary from "./Summary"
 import Link from 'next/link'
 import ConfirmationModal from "@/app/_modals/confirmation/ConfirmationModal"
+import Image from 'next/image';
+import IconCashOnDelivery from '../../../../public/assets/checkout/icon-cash-on-delivery.svg'
+import { useRouter } from "next/navigation"
 
 const schema = yup.object({
     name: yup.string().required('Name is a required field'),
@@ -58,14 +61,25 @@ export default function Form() {
     }
   }
 
+  const router = useRouter()
+function goBack() {
+     router.back()
+     setTimeout(() => {
+         window.scrollTo(0,0)
+     },100)
+    
+}
  
   return (
       <div className="mx-8 md:mx-12 lg:mx-32">
       
         {/* go back button link */}
-        <div className="font-medium text-black opacity-50 py-5">
+        {/* <div className="font-medium text-black opacity-50 py-5">
         <Link href='..'>Go Back</Link>
-        </div>
+        </div> */}
+        <button className="font-medium text-black opacity-50 py-5" onClick={goBack}>
+       Go Back
+    </button>
           
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col lg:flex-row lg:gap-5">
 
@@ -232,13 +246,21 @@ export default function Form() {
                     className={`font-bold text-sm leading-4 tracking-tighter text-black ml-1`}> Cash on Delivery</label>
                 </div>
               </div>
-            </div>
+            </div> 
 
             {/* payment details info */}
             {isCODInfoVisible && 
             <div className="flex my-5">
               <div className="w-1/3 flex justify-center items-center">
-                <img src='/assets/checkout/icon-cash-on-delivery.svg'alt="" />
+              <Image
+                       src={IconCashOnDelivery}
+                       width="0"
+                       height="0"
+                       sizes="100vw"
+                       className=" "
+                       alt="confirmation check"
+                       />
+                {/* <img src='/assets/checkout/icon-cash-on-delivery.svg'alt="" /> */}
               </div>
               
               <p className="font-medium leading-6 text-black opacity-50 w-2/3">The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
