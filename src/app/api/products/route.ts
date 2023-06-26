@@ -1,9 +1,7 @@
 import products from './data.json'
-
 import { NextResponse } from 'next/server'
 
-export async function GET(request: Request) {
-    
-   
-    return NextResponse.json(products)
-  }
+export async function GET() {
+
+  return NextResponse.json(products)
+}

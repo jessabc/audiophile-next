@@ -19,7 +19,7 @@ async function getProductData() {
     return response.data
   }
 
-export default async function OtherProductYouMayLike({product}) {
+export default  function OtherProductYouMayLike({product}) {
     
     // const {state} = useContext(ProductContext)
 
@@ -29,11 +29,14 @@ export default async function OtherProductYouMayLike({product}) {
 
     // find catergory
     // const products = useSelector(state => state.products.value)
-    const products = await getProductData()
+    
+    async function seeProduct() {
+        const products = await getProductData()
  
     const thisProduct = products.find(item => item.slug === product.slug)
 
-    
+    router.push(`/${thisProduct.category}/${thisProduct.slug}`)
+    }
    
     // const navigate = useNavigate()
 
@@ -82,7 +85,7 @@ export default async function OtherProductYouMayLike({product}) {
             <div>
                 <button  
                     className='font-bold text-sm leading-5 tracking-wide uppercase text-white bg-orange w-40 h-12 hover:bg-lightOrange'  
-                    onClick={()=> router.push(`/${thisProduct.category}/${thisProduct.slug}`)}
+                    onClick={seeProduct}
                     
                     // onClick={()=> router.push(`/headphones/xx59-headphones`)}
                     

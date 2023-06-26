@@ -3,6 +3,7 @@
 // import {useContext} from 'react'
 // import {ProductContext} from '../../ProductContext'
 // import { IProduct } from '../../interfaces'
+"use client"
 import { useRouter } from "next/navigation"
 import Image from 'next/image'
 import { FadeInBottomSection } from "@/app/_animations/FadeInBottomSection"

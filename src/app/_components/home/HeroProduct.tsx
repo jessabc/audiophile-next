@@ -1,5 +1,9 @@
+"use client"
 import Image from 'next/image'
 import {useRouter } from 'next/navigation'
+import heroImageMob from '../../../../public/assets/home/mobile/image-header.jpg'
+import heroImageTablet from '../../../../public/assets/home/tablet/image-header.jpg'
+import heroImageDesktop from '../../../../public/assets/home/desktop/image-hero.jpg'
 
 export default function HeroProduct() {
 
@@ -28,34 +32,40 @@ const router = useRouter()
                 {/* <img src={heroMob} 
                 alt="headphones" className="w-full md:hidden lg:hidden"/> */}
                 <Image
-                src='/assets/home/mobile/image-header.jpg'
+                src={heroImageMob}
                 alt='headphones'
                 width="0"
                 height="0"
                 sizes="100vw"
                 className="w-full h-auto md:hidden lg:hidden"
+                priority
+                placeholder="blur"
                 />
                 {/* med screen / tablet */}
                 {/* <img src={heroTablet}  
                 alt="headphones" className="w-full hidden md:block lg:hidden"/> */}
                 <Image
-                src='/assets/home/tablet/image-header.jpg'
+                src={heroImageMob}
                 alt=''
                 width="0"
                 height="0"
                 sizes="100vw"
                 className="w-full h-auto hidden md:block lg:hidden"
+                priority
+                placeholder="blur"
                 />
                 {/* lg screen / desktop */}
                 {/* <img src={heroDesktop}  
                 alt="headphones" className="w-full hidden lg:block"/> */}
                 <Image
-                src='/assets/home/desktop/image-hero.jpg'
+                src={heroImageDesktop}
                 alt=''
                 width="0"
                 height="0"
                 sizes="100vw"
                 className="w-full h-auto hidden lg:block"
+                priority
+                placeholder="blur"
                 />
             </div>
 

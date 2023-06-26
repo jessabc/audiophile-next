@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import {useDispatch} from 'react-redux'
-import { decrementProductInCart, incrementProductInCart } from '@/app/_redux/features/cart/cartSlice'
+import { decrementProductInCart, incrementProductInCart, removalAllFromCart } from '@/app/_redux/features/cart/cartSlice'
 
 
 export default function CartCounter({product}) {
@@ -9,9 +9,11 @@ export default function CartCounter({product}) {
     const dispatch = useDispatch()
 console.log('cartcounter rendr')
     function decrement() {
-      if(cartCount > 0) {
+      if(cartCount > 1) {
         setCartCount(prev => prev -1)
        dispatch(decrementProductInCart(product))
+      } else  {
+        dispatch(removalAllFromCart())
       }
        
     }
