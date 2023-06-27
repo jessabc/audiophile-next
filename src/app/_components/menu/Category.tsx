@@ -1,25 +1,20 @@
-// import { useNavigate } from "react-router-dom"
-// import iconArrow from '../../assets/shared/desktop/icon-arrow-right.svg'
 "use client"
-
-// interface CategoryProps {
-//     image: string,
-//     link: string,
-//     isMenuModalVisible?: boolean,
-//     setIsMenuModalVisible: React.Dispatch<React.SetStateAction<boolean>> | any
-// }
 import { useRouter } from "next/navigation"
 
-export default function Category({image, link }) {
+interface Props {
+    image: string,
+    link: string
+}
 
-const router = useRouter()
+export default function Category({image, link}: Props ){
+
+    const router = useRouter()
+
     function handleClick() {
         router.push(`/${link}`)
-        // window.scrollTo(0, 0)
     }
 
     return (
-       
         <div className={`flex flex-col justify-end items-center uppercase gap-5 bg-gray rounded-lg my-5 h-64 relative pb-8 mx-8 mb-32 md:mx-0 md:h-44 md:mb-28 lg:h-56 `} >
 
             <img src={image} alt="category image" className={`absolute bottom-16 max-h-64 `}/>

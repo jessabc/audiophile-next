@@ -1,12 +1,7 @@
-// import { FadeInLeftSection } from "../../animation/FadeInLeftSection "
-// import { FadeInRightSection } from "../../animation/FadeInRightSection"
-// import aboutMob from '../../assets/shared/mobile/image-best-gear.jpg'
-// import aboutTablet from '../../assets/shared/tablet/image-best-gear.jpg'
-// import aboutDesktop from '../../assets/shared/desktop/image-best-gear.jpg'
-
 import { FadeInLeftSection } from '@/app/_animations/FadeInLeftSection'
 import { FadeInRightSection } from '@/app/_animations/FadeInRightSection'
 import Image from 'next/image'
+
 
 export default function About() {
 
@@ -16,7 +11,7 @@ export default function About() {
          
             <div className="lg:order-2 lg:w-1/2">
              <FadeInRightSection>  
-             <Image
+              <Image
                 src='/assets/shared/mobile/image-best-gear.jpg'
                 width="0"
                 height="0"
@@ -40,9 +35,6 @@ export default function About() {
                 className="w-full h-auto rounded-lg hidden md:hidden lg:block"
                 alt="man wearing headphones"
                 />
-                {/* <img src='/assets/shared/mobile/image-best-gear.jpg' alt="man wearing headphones" className='rounded-lg md:hidden lg:hidden'/> 
-                <img src='/assets/shared/tablet/image-best-gear.jpg' alt="man wearing headphones" className='rounded-lg hidden md:block lg:hidden'/>
-                <img src='/assets/shared/desktop/image-best-gear.jpg' alt="man wearing headphones" className='rounded-lg hidden md:hidden lg:block'/>  */}
               </FadeInRightSection>    
             </div>
 

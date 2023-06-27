@@ -1,8 +1,8 @@
-import Product from '@/app/_components/Product'
+import Product from '@/app/_components/product/Product'
 import Menu from '@/app/_components/menu/Menu'
 import { Suspense } from 'react'
 import axios from 'axios'
-import { checkEnviroment } from '@/app/_helpers/checkEnviroment'
+import { useCheckEnviroment } from '@/app/_hooks/useCheckEnviroment'
 import Loading from '@/app/loading'
 import { IProduct } from '@/app/interfaces'
 
@@ -13,7 +13,7 @@ export const metadata = {
 
 
 async function getProductData() {
-  const response = await axios.get(checkEnviroment().concat('/api/products/speakers'))
+  const response = await axios.get(useCheckEnviroment().concat('/api/products/speakers'))
   return response.data
 }
 

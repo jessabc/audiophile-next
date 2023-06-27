@@ -1,4 +1,5 @@
 import React from "react";
+
 // https://dev.to/reedbarger/how-to-create-a-usewindowsize-react-hook-2bcm
 export default function useWindowSize() {
   const isSSR = typeof window !== "undefined";

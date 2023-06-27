@@ -4,11 +4,11 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from "yup"
 import { useState } from "react"
 import Summary from "./Summary"
-import Link from 'next/link'
 import ConfirmationModal from "@/app/_modals/confirmation/ConfirmationModal"
 import Image from 'next/image';
 import IconCashOnDelivery from '../../../../public/assets/checkout/icon-cash-on-delivery.svg'
 import { useRouter } from "next/navigation"
+
 
 const schema = yup.object({
     name: yup.string().required('Name is a required field'),
@@ -24,12 +24,7 @@ const schema = yup.object({
   }).required();
 
 
-type FormData = yup.InferType<typeof schema>
-
-
-// interface FormProps {
-//   setIsConfirmationModalOpen: React.Dispatch<React.SetStateAction<boolean>>
-// }
+  type FormData = yup.InferType<typeof schema>
 
 
 export default function Form() {
@@ -47,7 +42,8 @@ export default function Form() {
     })
     
   function onSubmit() {
-    setOpen(true)  }
+    setOpen(true)  
+  }
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     if(e.target.id === 'cashOnDelivery') {
@@ -62,24 +58,20 @@ export default function Form() {
   }
 
   const router = useRouter()
-function goBack() {
-     router.back()
-     setTimeout(() => {
-         window.scrollTo(0,0)
-     },100)
-    
-}
+
+  function goBack() {
+      router.back()
+      setTimeout(() => {
+          window.scrollTo(0,0)
+      },100)
+  }
  
   return (
       <div className="mx-8 md:mx-12 lg:mx-32">
       
-        {/* go back button link */}
-        {/* <div className="font-medium text-black opacity-50 py-5">
-        <Link href='..'>Go Back</Link>
-        </div> */}
         <button className="font-medium text-black opacity-50 py-5" onClick={goBack}>
-       Go Back
-    </button>
+          Go Back
+        </button>
           
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col lg:flex-row lg:gap-5">
 
@@ -304,13 +296,10 @@ function goBack() {
               <div className="mt-5 lg:mt-0">
                 <Summary/>
               </div>
-              {/* <button className='font-bold text-sm leading-5 tracking-wide uppercase text-white bg-orange w-full h-12 hover:bg-lightOrange my-5'> continue & pay</button> */}
-             <button className='font-bold text-sm leading-5 tracking-wide uppercase text-white bg-orange w-full h-12 hover:bg-lightOrange my-5'>
-              Continue & Pay
-             </button>
-                 <ConfirmationModal open={open} setOpen={setOpen}/>
-             
-             
+                <button className='font-bold text-sm leading-5 tracking-wide uppercase text-white bg-orange w-full h-12 hover:bg-lightOrange my-5'>
+                  Continue & Pay
+                </button>
+                <ConfirmationModal open={open} setOpen={setOpen}/>
             </div>
           </div>     
           

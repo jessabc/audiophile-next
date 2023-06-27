@@ -1,24 +1,25 @@
 import React from 'react'
-import Counter from "@/app/_components/Counter"
 import CartCounter from './CartCounter'
 import CartItem from './CartItem'
+import { ProductInCart } from '@/app/interfaces'
 
-export default function CartProduct({product}) {
+interface Props {
+  product: ProductInCart
+}
+
+export default function CartProduct({product}: Props) {
+
   return (
     <div className="grid grid-cols-5 gap-3 items-center mb-4">
 
-<CartItem product={product}/>
+      <CartItem product={product}/>
   
-    <div className="col-span-2">
-    <CartCounter product={product}/>
-    </div>
+      <div className="col-span-2">
+      <CartCounter product={product}/>
+      </div>
     
-</div>
-    // <div>
-    //     <p>{product.name}</p>
-    //     <p>{product.price}</p>
-    //     <CartCounter product={product}/>
-    // </div>
+    </div>
+ 
   )
 }
 

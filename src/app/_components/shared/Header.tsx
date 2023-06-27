@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import Image from 'next/image' 
 import Link from 'next/link'
 import CartModal from '@/app/_modals/cart/CartModal'
@@ -8,52 +8,32 @@ import { useRouter } from 'next/navigation';
 import useWindowSize from '@/app/_hooks/useWindowSize'
 import logo from '../../../../public/assets/shared/desktop/logo.svg'
 import { usePathname } from 'next/navigation';
-import { numItemsInCart } from '@/app/_helpers/numItemsInCart'
+import { useNumItemsInCart } from '@/app/_hooks/useNumItemsInCart'
+
 
 export default function  Header  () {
  
   const router = useRouter();
   const pathname = usePathname();
-
   const { width } = useWindowSize();
-  console.log('header rendered')
+
   return (
     <>
     <header className="fade-in flex justify-between bg-black px-8 py-10 border-b border-gray md:px-12 md:gap-10 lg:px-32 lg:gap-16 sticky z-50 top-0">
 
-      {/* hamburger on small screen */}
-      {/* <button 
-        className="lg:hidden" 
-       
-      >
-        <Image
-          className=""
-          src="/assets/shared/tablet/icon-hamburger.svg"
-          alt="hamburger icon"
-          width={16}
-          height={15}
-          
-        /> 
-      </button> */}
-      {width < 1024 &&
-           <MenuModal/>
-      
-      }
+      {width < 1024 && <MenuModal/>}
    
-
       {/* audiophile logo */}
       <Link href='/'>
-     <Image
-        
+        <Image
           src={logo}
           alt="audiophile logo"
           width="0"
           height="0"
           sizes="100vw"
           className="w-full h-auto"
-          
         /> 
-    </Link>
+      </Link>
 
       {/* nav on tablet and desktop */}
       <nav className="font-bold text-white text-sm leading-6 tracking-widest uppercase text-center hidden lg:block ">
@@ -85,25 +65,18 @@ export default function  Header  () {
       <div className=' '>
 
         <div className='flex relative'>
-
             <div className=''>
               <CartModal/>
             </div>
-
            <div className='bg-orange rounded-full px-1  flex justify-center items-center absolute -top-2 -right-2'>
-            <p className='text-xs font-semibold '>{numItemsInCart()}</p>
+            <p className='text-xs font-semibold '>{useNumItemsInCart()}</p>
           </div>
-          
-         
         </div>
      
       </div>
-  
-      {/* <CartModal/> */}
    
   </header>
   </>
         
- 
   )
 }

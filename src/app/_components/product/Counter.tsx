@@ -1,16 +1,17 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 
-export default function Counter({count, setCount}) {
-    
-console.log('counter renderd')
+interface Props {
+  count: number,
+  setCount: React.Dispatch<React.SetStateAction<number>>;
+}
 
-function decrement() {
-    if(count > 0) {
-      setCount(prev => prev -1)
+export default function Counter({count, setCount}: Props) {
     
-    }
-     
+  function decrement() {
+      if(count > 0) {
+        setCount(prev => prev -1)
+      }
   }
 
   function increment(){
@@ -18,8 +19,8 @@ function decrement() {
   }
  
 
-    return (
-      <div className={`grid grid-cols-3 bg-gray h-12`}>
+  return (
+    <div className={`grid grid-cols-3 bg-gray h-12`}>
 
       <button 
           className='font-bold text-sm text-center text-black opacity-25 hover:text-orange'  
@@ -39,11 +40,7 @@ function decrement() {
       >
           +
       </button>
-  </div>  
-        // <div>
-        //   <button onClick={()=>setCount(prev => prev - 1)}>-</button>
-        //   <input type="text" value={count} onChange={(e)=>setCount(Number(e.target.value))} disabled/>
-        //   <button onClick={()=>setCount(prev => prev + 1)}>+</button>
-        // </div>
-      )
+    </div>  
+     
+  )
 }

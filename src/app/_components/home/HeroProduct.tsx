@@ -5,32 +5,16 @@ import heroImageMob from '../../../../public/assets/home/mobile/image-header.jpg
 import heroImageTablet from '../../../../public/assets/home/tablet/image-header.jpg'
 import heroImageDesktop from '../../../../public/assets/home/desktop/image-hero.jpg'
 
+
 export default function HeroProduct() {
 
-    
-const router = useRouter()
-  
-
-   
-
+    const router = useRouter()
+ 
     return (
          <div className=" fade-in relative mb-40 mb:36 md:mb-44 lg:mb-40">
 
-            {/* <div className=''>
-                <Image
-                src='/assets/home/mobile/image-header.jpg'
-                alt=''
-                width="0"
-                height="0"
-                sizes="100vw"
-                className="w-full h-auto"
-                />
-            </div> */}
-
             <div>
                 {/* small screen / mobile */}
-                {/* <img src={heroMob} 
-                alt="headphones" className="w-full md:hidden lg:hidden"/> */}
                 <Image
                 src={heroImageMob}
                 alt='headphones'
@@ -42,10 +26,8 @@ const router = useRouter()
                 placeholder="blur"
                 />
                 {/* med screen / tablet */}
-                {/* <img src={heroTablet}  
-                alt="headphones" className="w-full hidden md:block lg:hidden"/> */}
                 <Image
-                src={heroImageMob}
+                src={heroImageTablet}
                 alt=''
                 width="0"
                 height="0"
@@ -55,8 +37,6 @@ const router = useRouter()
                 placeholder="blur"
                 />
                 {/* lg screen / desktop */}
-                {/* <img src={heroDesktop}  
-                alt="headphones" className="w-full hidden lg:block"/> */}
                 <Image
                 src={heroImageDesktop}
                 alt=''

@@ -13,24 +13,15 @@ export default function Footer() {
                 
                 {/* logo */}
                 <Image
-        
-        src={logo}
-        alt="audiophile logo"
-        width="0"
-        height="0"
-        sizes="100vw"
-        className=" mb-14 lg:mb-0"
-        
-      /> 
-                {/* <Image
-                src=
-                alt="audiophile logo"
-                width="0"
-                height="0"
-          sizes="100vw" className="w-full h-auto mb-14 lg:mb-0"
-                /> */}
-                {/* <img src={logo} alt="audiophile logo" className="mb-14 lg:mb-0"/> */}
-
+                  src={logo}
+                  alt="audiophile logo"
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className=" mb-14 lg:mb-0"
+                  
+                /> 
+              
                 {/* nav */}
                 <nav className="font-bold text-white text-sm leading-6 tracking-widest uppercase text-center  
                 ">

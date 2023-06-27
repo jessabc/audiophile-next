@@ -1,23 +1,14 @@
-// import Category from './Category'
-// import categoryHeadphones from '/src/assets/shared/desktop/image-category-thumbnail-headphones.png'
-// import categorySpeakers from '/src/assets/shared/desktop/image-category-thumbnail-speakers.png'
-// import categoryEarphones from '/src/assets/shared/desktop/image-category-thumbnail-earphones.png'
-// import { FadeInBottomSection } from "../../animation/FadeInBottomSection"
-
 import CategoryInMenuModal from './CategoryInMenuModal'
 
+interface Props {
+    setOpen:  React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-// interface MenuProps {
-//     isMenuModalVisible?: boolean,
-//     setIsMenuModalVisible?: React.Dispatch<React.SetStateAction<boolean>> | any
-// }
-
-// {isMenuModalVisible, setIsMenuModalVisible}: MenuProps
 export default function MenuInModal
-({setOpen}) {
+({setOpen}: Props) {
 
     return (
-        <section className={`md:mx-12 md:grid md:grid-cols-3 gap-2  lg:mx-32 mt-10 `}  > 
+        <section className={` gap-5  pt-14 flex flex-col md:grid md:grid-cols-3 md:gap-2`}  > 
  
                 <CategoryInMenuModal 
                     image='/assets/shared/desktop/image-category-thumbnail-headphones.png' 
@@ -38,7 +29,5 @@ export default function MenuInModal
                 />
 
             </section>
-
-       
     )
 }

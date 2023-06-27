@@ -1,12 +1,13 @@
 "use client"
-import {useSelector, useDispatch} from 'react-redux'
+import React, { useState } from 'react'
+import { useAppSelector } from '@/app/_redux/hooks'
 import SummaryCartItem from './SummaryCartItem'
 import { useGetTotal } from '@/app/_hooks/useGetTotal'
 
+
 export default function Summary() {
 
-    const cart = useSelector(state => state.cart.value)
-
+    const cart = useAppSelector(state => state.cart.value)
 
     const SummaryCartItemElements = cart.map((item) => <SummaryCartItem key={item.id} item={item}/>)
 
