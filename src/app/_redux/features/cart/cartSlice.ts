@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import {ProductInCart} from '../../../interfaces'
+import { ProductInCart } from '../../../interfaces'
 
 export interface CartState {
   value: ProductInCart[]
