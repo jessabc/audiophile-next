@@ -43,7 +43,7 @@ export default function Footer() {
 
               </div>
            
-              <p className="font-medium leading-6 text-center text-white opacity-50 md:text-left lg:w-1/2">Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.</p>
+              <p className="font-medium leading-6 text-center text-white opacity-50 md:text-left lg:w-1/2">Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we are open 7 days a week.</p>
 
               <div className="flex flex-col justify-center items-center  gap-14 md:flex-row md:justify-between md:w-full">
                 <p className="leading-6 text-center text-white opacity-50">Copyright 2021. All Rights Reserved</p>

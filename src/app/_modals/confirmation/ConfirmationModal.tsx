@@ -10,7 +10,7 @@ import {useRouter} from 'next/navigation'
 import IconOrderConfirmation from '../../../../public/assets/checkout/icon-order-confirmation.svg'
 import Image from 'next/image';
 import { removalAllFromCart } from '@/app/_redux/features/cart/cartSlice';
-import { IProduct } from '@/app/interfaces';
+import { ProductInCart } from '@/app/interfaces';
 
 interface Props {
   open: boolean,
@@ -29,7 +29,7 @@ export default function ConfirmationModal ({open, setOpen}: Props) {
 
   const firstCartItemElement = <SummaryCartItem item={cart[0]}/>
 
-  const allCartItemElements = cart.map((item: IProduct) => <SummaryCartItem key={item.id} item={item}/>)
+  const allCartItemElements = cart.map((item: ProductInCart) => <SummaryCartItem key={item.id} item={item}/>)
 
   const total = useGetTotal()
 

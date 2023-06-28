@@ -1,6 +1,6 @@
 // https://stackoverflow.com/questions/74966208/next-js-typeerror-failed-to-parse-url-from-api-projects-or-error-connect-econ
 // https://stackoverflow.com/questions/64792787/easiest-way-to-detect-production-or-dev-environment-in-nextjs
-export const useCheckEnviroment = () => {
+export const checkEnviroment = () => {
     let base_url =
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"

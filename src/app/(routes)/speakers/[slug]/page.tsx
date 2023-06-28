@@ -1,6 +1,6 @@
 import Menu from '@/app/_components/menu/Menu'
 import axios from 'axios'
-import { useCheckEnviroment } from '@/app/_hooks/useCheckEnviroment'
+import { checkEnviroment } from '@/app/_helpers/checkEnviroment'
 import ProductDetail from '@/app/_components/product/ProductDetail'
 
 
@@ -12,7 +12,7 @@ export async function generateMetadata({params}: {params: { slug: string }}) {
 
 
 async function getProductData({params}: {params: { slug: string }}) {
-  const response = await axios.get(useCheckEnviroment().concat(`/api/products/speakers/${params.slug}`))
+  const response = await axios.get(checkEnviroment().concat(`/api/products/speakers/${params.slug}`))
   return response.data
 }
 

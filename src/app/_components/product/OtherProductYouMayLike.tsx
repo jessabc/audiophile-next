@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import { useRouter } from "next/navigation"
-import { useCheckEnviroment } from '../../_hooks/useCheckEnviroment'
+import { checkEnviroment } from '../../_helpers/checkEnviroment'
 import axios from 'axios'
 import { IProduct, Other } from '../../interfaces'
 
 
 async function getProductData() {
-    const response = await axios.get(useCheckEnviroment().concat('/api/products'))
+    const response = await axios.get(checkEnviroment().concat('/api/products'))
     return response.data
 }
 

@@ -13,17 +13,18 @@ export  function FadeInLeftSection({children}: FadeInLeftSectionProps) {
 
   // https://stackoverflow.com/questions/73051303/intersection-observer-in-typescript-throws-error-in-useref
   useEffect(() => {
-    if (!domRef.current) return;
+    const thisDomRef = domRef
+    if (!thisDomRef.current) return;
 
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => setVisible(entry.isIntersecting))
-    });
+      entries.forEach(entry => setVisible(entry.isIntersecting));
+    })
     
-    if (domRef.current) observer.observe(domRef?.current)
+    if (thisDomRef.current) observer.observe(thisDomRef?.current)
 
     return () => {
-      if (domRef.current) observer.unobserve(domRef?.current)
-    } 
+      if (thisDomRef.current) observer.unobserve(thisDomRef?.current)
+    }
   }, [])
 
   return (
