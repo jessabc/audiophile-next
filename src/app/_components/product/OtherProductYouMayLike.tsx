@@ -1,14 +1,8 @@
 import Image from 'next/image'
 import { useRouter } from "next/navigation"
-import { checkEnviroment } from '../../_helpers/checkEnviroment'
-import axios from 'axios'
 import { IProduct, Other } from '../../interfaces'
+import useGetProducts from '@/app/_hooks/useGetProducts'
 
-
-async function getProductData() {
-    const response = await axios.get(checkEnviroment().concat('/api/products'))
-    return response.data
-}
 
 interface Props {
     product: Other
@@ -20,12 +14,11 @@ export default function OtherProductYouMayLike({product}: Props) {
 
     const {image, name, slug} = product
 
-    async function seeProduct() {
-        const products = await getProductData()
- 
-        const thisProduct = products.find((item: IProduct) => item.slug === product.slug)
+    const products = useGetProducts()
 
-        router.push(`/${thisProduct.category}/${thisProduct.slug}`)
+    function seeProduct() {
+        const thisProduct = products.find((item: IProduct) => item.slug === product.slug)
+        router.push(`/${thisProduct?.category}/${thisProduct?.slug}`)
     }
    
    

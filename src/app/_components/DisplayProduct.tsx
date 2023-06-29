@@ -1,8 +1,8 @@
-import React from 'react'
+// import React from 'react'
 
-export const DisplayProduct = () => {
-  return (
-    <div>DisplayProduct</div>
-  )
-}
+// export const DisplayProduct = () => {
+//   return (
+//     <div>DisplayProduct</div>
+//   )
+// }
 // DELETE

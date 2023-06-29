@@ -22,7 +22,7 @@ export default function HeroProduct() {
                 height="0"
                 sizes="100vw"
                 className="w-full h-auto md:hidden lg:hidden"
-                priority
+                priority={true}
                 placeholder="blur"
                 />
                 {/* med screen / tablet */}
@@ -33,7 +33,7 @@ export default function HeroProduct() {
                 height="0"
                 sizes="100vw"
                 className="w-full h-auto hidden md:block lg:hidden"
-                priority
+                priority={true}
                 placeholder="blur"
                 />
                 {/* lg screen / desktop */}
@@ -44,7 +44,7 @@ export default function HeroProduct() {
                 height="0"
                 sizes="100vw"
                 className="w-full h-auto hidden lg:block"
-                priority
+                priority={true}
                 placeholder="blur"
                 />
             </div>

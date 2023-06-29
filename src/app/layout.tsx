@@ -1,4 +1,5 @@
 import './globals.css'
+import { Manrope } from 'next/font/google'
 import Header from './_components/shared/Header'
 import Footer from './_components/shared/Footer'
 import { ReduxProvider } from './_redux/provider'
@@ -9,6 +10,11 @@ export const metadata = {
   title: 'Audiophile'
 }
 
+const manrope = Manrope({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-manrope',
+})
 
 export default function RootLayout({
   children,
@@ -18,8 +24,8 @@ export default function RootLayout({
 
 
   return (
-    <html>
-      <body className="font-display">
+    <html lang="en" className={`${manrope.variable} `}>
+      <body >
         <ReduxProvider>
           <Header />
           {children}

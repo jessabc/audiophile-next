@@ -1,26 +1,15 @@
+"use client"
 import Product from '@/app/_components/product/Product'
 import Menu from '@/app/_components/menu/Menu'
-import { Suspense } from 'react'
-import axios from 'axios'
-import { checkEnviroment } from '@/app/_helpers/checkEnviroment'
-import Loading from '@/app/loading'
 import { IProduct } from '@/app/interfaces'
+import useGetProducts from '@/app/_hooks/useGetProducts'
 
 
-export const metadata = {
-  title: 'Speakers'
-}
-
-
-async function getProductData() {
-  const response = await axios.get(checkEnviroment().concat('/api/products/speakers'))
-  return response.data
-}
-
-
-export default async function Speakers() {
+export default  function Speakers() {
     
-  const speakers = await getProductData()
+  const products =  useGetProducts()
+
+  const speakers = products.filter(item => item.category === 'speakers')
 
   const speakerElements = speakers?.map((item: IProduct, index: number) => <Product key={item.id} item={item} index={index}/>)
 
@@ -31,11 +20,9 @@ export default async function Speakers() {
           <h2 className='font-bold text-3xl text-center tracking-wider uppercase text-white py-10'>Speakers</h2>
       </div>
 
-      <Suspense fallback={<Loading/>}>
-        <div className='px-8 md:px-12 lg:px-32 mt-20 mb-52'>
-          {speakerElements}
-        </div> 
-      </Suspense >
+      <div className='px-8 md:px-12 lg:px-32 mt-20 mb-52'>
+        {speakerElements}
+      </div> 
 
       <Menu/> 
           

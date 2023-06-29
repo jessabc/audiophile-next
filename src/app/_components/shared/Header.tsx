@@ -5,7 +5,6 @@ import Link from 'next/link'
 import CartModal from '@/app/_modals/cart/CartModal'
 import MenuModal from '@/app/_modals/menu/MenuModal'
 import { useRouter } from 'next/navigation';
-import useWindowSize from '@/app/_hooks/useWindowSize'
 import logo from '../../../../public/assets/shared/desktop/logo.svg'
 import { usePathname } from 'next/navigation';
 import { useNumItemsInCart } from '@/app/_hooks/useNumItemsInCart'
@@ -15,13 +14,14 @@ export default function  Header  () {
  
   const router = useRouter();
   const pathname = usePathname();
-  const { width } = useWindowSize();
 
   return (
     <>
     <header className="fade-in flex justify-between bg-black px-8 py-10 border-b border-gray md:px-12 md:gap-10 lg:px-32 lg:gap-16 sticky z-50 top-0">
 
-      {width < 1024 && <MenuModal/>}
+      <div className=' lg:hidden'>
+      <MenuModal/>
+      </div>
    
       {/* audiophile logo */}
       <Link href='/'>

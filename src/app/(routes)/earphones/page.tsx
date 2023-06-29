@@ -1,31 +1,28 @@
+"use client"
 import Product from '@/app/_components/product/Product'
 import Menu from '@/app/_components/menu/Menu'
-import axios from 'axios'
 import { Suspense } from 'react'
-import { checkEnviroment } from '@/app/_helpers/checkEnviroment'
 import { IProduct } from '@/app/interfaces'
 import Loading from '@/app/loading'
+import Head from 'next/head'
+import { Metadata } from 'next'
+import useGetProducts from '@/app/_hooks/useGetProducts'
 
-
-export const metadata = {
-  title: 'Earphones',
-}
-
-
-async function getProductData() {
-  const response = await axios.get(checkEnviroment().concat('/api/products/earphones'))
-  return response.data
-}
-
-
-export default async function Earphones() {
+ 
+export default  function Earphones() {
     
-  const earphones = await getProductData()
+  const products =  useGetProducts()
+
+  const earphones = products.filter(item => item.category === 'earphones')
 
   const earphoneElements =  earphones.map((item: IProduct, index: number) => <Product key={item.id} item={item} index={index}/>)
 
   return (
     <main className="fade-in">
+    <Head>
+    <title>Earphones</title>
+    
+  </Head>
 
       <div className='bg-black '>
         <h2 className='font-bold text-3xl text-center tracking-wider uppercase text-white py-10'>Earphones</h2>

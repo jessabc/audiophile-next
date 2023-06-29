@@ -1,25 +1,17 @@
+"use client"
 import Product from '@/app/_components/product/Product'
 import Menu from '@/app/_components/menu/Menu'
-import axios from 'axios'
 import { Suspense } from 'react'
-import { checkEnviroment } from '@/app/_helpers/checkEnviroment'
 import Loading from '@/app/loading'
 import { IProduct } from '@/app/interfaces'
+import useGetProducts from '@/app/_hooks/useGetProducts'
 
 
-export const metadata = {
-  title: 'Headphones',
-}
+export default  function Headphones() {
 
+  const products =  useGetProducts()
 
-async function getProductData() {
-  const response = await axios.get(checkEnviroment().concat('/api/products/headphones'))
-  return response.data
-}
-
-export default async function Headphones() {
-
-  const headphones = await getProductData()
+  const headphones = products.filter(item => item.category === 'headphones')
   const headphoneElements = headphones?.map((item: IProduct, index:number) => <Product key={item.id} item={item} index={index}/>)
 
   return (

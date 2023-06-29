@@ -16,7 +16,7 @@ export default function CategoryInMenuModal({image, link, setOpen }: Props) {
         router.push(`/${link}`)
         setOpen(false)
     }
-
+ 
     return (  
         <div className={`flex flex-col justify-end items-center uppercase gap-5 bg-gray my-10 rounded-lg pb-8 h-44 relative  mx-14  md:px-20`} >
 

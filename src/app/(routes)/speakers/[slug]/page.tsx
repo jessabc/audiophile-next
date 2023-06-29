@@ -1,33 +1,22 @@
+"use client"
 import Menu from '@/app/_components/menu/Menu'
-import axios from 'axios'
-import { checkEnviroment } from '@/app/_helpers/checkEnviroment'
 import ProductDetail from '@/app/_components/product/ProductDetail'
+import useGetProducts from '@/app/_hooks/useGetProducts'
+import useGetThisProduct from '@/app/_hooks/useGetThisProduct'
 
 
-export async function generateMetadata({params}: {params: { slug: string }}) {
-  return {
-    title: params.slug,
-  }
-}
-
-
-async function getProductData({params}: {params: { slug: string }}) {
-  const response = await axios.get(checkEnviroment().concat(`/api/products/speakers/${params.slug}`))
-  return response.data
-}
-
-
-export default async function Speaker({params}: {params: { slug: string }}) {
+export default  function Speaker({params}: {params: { slug: string }}) {
  
-  const thisProduct = await getProductData({params})
+  const products =  useGetProducts()
+  const thisProduct = useGetThisProduct({params})
   
   return (
     <main className="">
 
-      <ProductDetail product={thisProduct}/>   
-      
+      {thisProduct && <ProductDetail product={thisProduct}/>}      
       <Menu />
   
     </main>
   )
 }
+ 
