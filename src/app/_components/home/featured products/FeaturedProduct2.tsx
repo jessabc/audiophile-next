@@ -13,21 +13,21 @@ export default function FeaturedProduct2() {
           <FadeInBottomSection>
                 <div className={`relative mx-8 md:mx-12 lg:mx-32 z-10`}  > 
                     <Image
-                    src={'/assets/home/mobile/image-speaker-zx7.jpg '}
+                    src={'/assets/home/mobile/image-speaker-zx7.jpg'}
                     width="0"
                     height="0"
                     sizes="100vw"
                     alt="ZX7 Speaker" className='w-full rounded-lg md:hidden lg:hidden'
                     />
                     <Image
-                    src={'/assets/home/tablet/image-speaker-zx7.jpg '}
+                    src={'/assets/home/tablet/image-speaker-zx7.jpg'}
                     width="0"
                     height="0"
                     sizes="100vw"
                     alt="ZX7 Speaker" className=' w-full  rounded-lg hidden md:block lg:hidden'
-                    />
+                    /> 
                    <Image
-                    src={'/assets/home/desktop/image-speaker-zx7.jpg '}
+                    src={'/assets/home/desktop/image-speaker-zx7.jpg'}
                     width="0"
                     height="0"
                     sizes="100vw"

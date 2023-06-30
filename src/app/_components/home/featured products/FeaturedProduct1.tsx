@@ -10,10 +10,10 @@ export default function FeaturedProduct1() {
     return (
         <>
           <FadeInBottomSection>
-                <div className={`flex flex-col justify-center items-center bg-orange mx-8 rounded-lg gap-5 px-5 py-14 text-center md:mx-12 md:gap-10 md:py-10 lg:mx-32 lg:grid lg:grid-cols-2 lg:p-0 lg:gap-0 relative lg:pt-10`} >
+                <div className={`flex flex-col justify-center items-center bg-orange  mx-8 rounded-lg gap-5 px-5 py-14 text-center md:mx-12 md:gap-10 md:py-10 lg:mx-32 lg:grid lg:grid-cols-2 lg:p-0 lg:gap-0 relative lg:pt-10`} >
                     <div className='w-1/2 md:w-1/3 lg:w-3/4 lg:self-end lg:justify-self-center z-10'>
                         <Image
-                        src={'/assets/home/tablet/image-speaker-zx9.png'}
+                        src={'/assets/home/mobile/image-speaker-zx9.png'}
                         width="0"
                         height="0"
                         sizes="100vw"

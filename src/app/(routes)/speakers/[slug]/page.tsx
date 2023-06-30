@@ -7,7 +7,6 @@ import useGetThisProduct from '@/app/_hooks/useGetThisProduct'
 
 export default  function Speaker({params}: {params: { slug: string }}) {
  
-  const products =  useGetProducts()
   const thisProduct = useGetThisProduct({params})
   
   return (

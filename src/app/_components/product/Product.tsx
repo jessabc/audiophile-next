@@ -24,7 +24,7 @@ export default function Product({item, index}: Props) {
           <div className="mb-28 flex flex-col gap-5 justify-center items-center lg:flex-row lg:gap-10">
               <div className={`lg:w-1/2 ${oddIndex ? 'lg:order-1' : null}`}>
                 <Image
-                src={`/${image.mobile}`}
+                src={`${image.mobile}`}
                 width="0"
                 height="0"
                 sizes="100vw"
@@ -32,7 +32,7 @@ export default function Product({item, index}: Props) {
                 alt={`${name} image`} 
                 />
                 <Image
-                src={`/${image.tablet}`}
+                src={`${image.tablet}`}
                 width="0"
                 height="0"
                 sizes="100vw"
@@ -40,7 +40,7 @@ export default function Product({item, index}: Props) {
                 alt={`${name} image`} 
                 />
                 <Image
-                src={`/${image.desktop}`}
+                src={`${image.desktop}`}
                 width="0"
                 height="0"
                 sizes="100vw"

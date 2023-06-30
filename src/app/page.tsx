@@ -16,7 +16,6 @@ export default function Home() {
     async function getProductData() {
       try{
         const response = await axios.get('./data.json')
-        // console.log(response.data)
         dispatch(setAllProducts(response.data))
       }catch(err) {
        alert(err)

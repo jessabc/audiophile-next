@@ -63,7 +63,7 @@ export default function ProductDetail({product}: Props) {
 
                 <div className="md:w-1/2">
                     <Image
-                    src={`/${image.mobile}`}
+                    src={`${image.mobile}`}
                     width="0"
                     height="0"
                     sizes="100vw"
@@ -71,7 +71,7 @@ export default function ProductDetail({product}: Props) {
                     alt={`${name} image`} 
                     />
                     <Image
-                    src={`/${image.tablet}`}
+                    src={`${image.tablet}`}
                     width="0"
                     height="0"
                     sizes="100vw"
@@ -79,7 +79,7 @@ export default function ProductDetail({product}: Props) {
                     alt={`${name} image`} 
                     />
                     <Image
-                    src={`/${image.desktop}`}
+                    src={`${image.desktop}`}
                     width="0"
                     height="0"
                     sizes="100vw"
@@ -140,7 +140,7 @@ export default function ProductDetail({product}: Props) {
                     <div className="md:w-1/2 flex flex-col gap-5 md:justify-between  ">
                         <FadeInLeftSection>
                         <Image
-                            src={`/${gallery?.first.mobile}`}
+                            src={`${gallery?.first.mobile}`}
                             width="0"
                             height="0"
                             sizes="100vw"
@@ -151,7 +151,7 @@ export default function ProductDetail({product}: Props) {
                         </FadeInLeftSection>
                         <FadeInLeftSection>
                         <Image
-                            src={`/${gallery?.second.mobile}`}
+                            src={`${gallery?.second.mobile}`}
                             width="0"
                             height="0"
                             sizes="100vw"
@@ -165,7 +165,7 @@ export default function ProductDetail({product}: Props) {
                     <div className="md:w-1/2">
                         <FadeInRightSection>
                         <Image
-                            src={`/${gallery?.third.mobile}`}
+                            src={`${gallery?.third.mobile}`}
                             width="0"
                             height="0"
                             sizes="100vw"
