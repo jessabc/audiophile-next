@@ -43,7 +43,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github](https://github.com/jessabc/audiophile-next)
-- Live Site URL: [https://audiophile-sound.netlify.app](https://audiophile-next-eight.vercel.app/)
+- Live Site URL: [Audiophile](https://audiophile-next-eight.vercel.app/)
 
 ## My process
 
