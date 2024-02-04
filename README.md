@@ -6,7 +6,7 @@ This is the second version of this website. The first was build with vite and us
 
 Links for the first version:
 - Solution URL: [Github](https://github.com/jessabc/audiophile)
-- Live Site URL: [Audiophile](https://audiophile-sound.netlify.app)
+- Live Site URL: 
 
 ## Table of contents
 
