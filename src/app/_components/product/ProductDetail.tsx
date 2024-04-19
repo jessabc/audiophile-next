@@ -78,14 +78,14 @@ export default function ProductDetail({ product }: Props) {
       {/* go back button link */}
       <button
         type="button"
-        className=" fade-in font-medium text-black opacity-50 py-5"
+        className="font-medium text-black opacity-50 py-5"
         onClick={goBack}
       >
         Go Back
       </button>
 
       <div>
-        <div className="fade-in md:flex md:gap-5 lg:gap-20">
+        <div className="md:flex md:gap-5 lg:gap-20">
           <div className="md:w-1/2">
             <Image
               src={`${image.mobile}`}
