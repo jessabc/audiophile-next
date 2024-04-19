@@ -1,14 +1,14 @@
-import React from 'react'
-import Form from '@/app/_components/checkout/Form'
+import React from "react";
+import Form from "@/app/_components/checkout/Form";
 
 export const metadata = {
-  title: 'Checkout'
-}
+  title: "Checkout",
+};
 
 export default function Checkout() {
   return (
     <div>
-      <Form/>
+      <Form />
     </div>
-  )
+  );
 }

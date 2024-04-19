@@ -2,12 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .watermark {
   position: absolute;
   z-index: 1;
 }
-
 
 /* https://blog.hubspot.com/website/css-fade-in */
 .fade-in {
@@ -19,30 +17,49 @@
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-moz-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-o-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-ms-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
 
 /* https://dev.to/selbekk/how-to-fade-in-content-as-it-scrolls-into-view-10j4 */
 /* fade in bottom */
@@ -86,7 +103,6 @@
   transform: none;
   visibility: visible;
 }
-
 
 /* fade in top */
 .fade-in-top-section {

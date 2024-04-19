@@ -1,66 +1,34 @@
-"use client"
-import Image from 'next/image'
-import {useRouter } from 'next/navigation'
-import heroImageMob from '../../../../public/assets/home/mobile/image-header.jpg'
-import heroImageTablet from '../../../../public/assets/home/tablet/image-header.jpg'
-import heroImageDesktop from '../../../../public/assets/home/desktop/image-hero.jpg'
-
+"use client";
+import { useRouter } from "next/navigation";
 
 export default function HeroProduct() {
-
-    const router = useRouter()
- 
-    return (
-         <div className=" fade-in relative mb-40 mb:36 md:mb-44 lg:mb-40">
-
-            <div>
-                {/* small screen / mobile */}
-                <Image
-                src={heroImageMob}
-                alt='headphones'
-                width="0"
-                height="0"
-                sizes="100vw"
-                className="w-full h-auto md:hidden lg:hidden"
-                priority={true}
-                placeholder="blur"
-                />
-                {/* med screen / tablet */}
-                <Image
-                src={heroImageTablet}
-                alt=''
-                width="0"
-                height="0"
-                sizes="100vw"
-                className="w-full h-auto hidden md:block lg:hidden"
-                priority={true}
-                placeholder="blur"
-                />
-                {/* lg screen / desktop */}
-                <Image
-                src={heroImageDesktop}
-                alt=''
-                width="0"
-                height="0"
-                sizes="100vw"
-                className="w-full h-auto hidden lg:block"
-                priority={true}
-                placeholder="blur"
-                />
-            </div>
-
-            <div className="text-white absolute top-0 px-8  flex flex-col items-center justify-center h-full gap-4 md:px-32 md:gap-6 lg:items-start lg:w-1/2 ">
-                <p className="text-sm leading-5 text-center tracking-widest uppercase text-white opacity-50">NEW PRODUCT</p>
-                <p className='font-bold text-4xl leading-10 text-center tracking-wider uppercase md:text-6xl lg:text-5xl  lg:text-left'>XX99 MARK II HEADPHONES</p>
-                <p className='font-semibold text-center text-white opacity-75 leading-loose my-3 lg:text-left'>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
-                <button 
-                onClick={()=> router.push(`/headphones/xx99-mark-one-headphones`)}
-                    className='font-bold text-sm leading-5 tracking-wide uppercase text-white bg-orange w-40 h-12 hover:bg-lightOrange' 
-                    >
-                    see product
-                </button>
-            </div>
-          
-        </div>
-    )
+  const router = useRouter();
+  return (
+    <div
+      className=" bg-black h-[calc(100vh-5rem)] bg-hero-mobile md:bg-hero-tablet lg:bg-hero-desktop bg-cover bg-no-repeat bg-center flex flex-col"
+      data-aos="fade"
+      data-aos-easing="ease-in-sine"
+      data-aos-duration="600"
+      data-aos-once="true"
+    >
+      <div className="text-white px-8  flex flex-col items-center justify-center h-full gap-4 md:px-32 md:gap-6 lg:items-start lg:w-1/2 ">
+        <p className="text-sm leading-5 text-center tracking-widest uppercase text-white opacity-50">
+          NEW PRODUCT
+        </p>
+        <p className="font-bold text-4xl leading-10 text-center tracking-wider uppercase md:text-6xl lg:text-5xl  lg:text-left">
+          XX99 MARK II HEADPHONES
+        </p>
+        <p className="font-semibold text-center text-white opacity-75 leading-loose my-3 lg:text-left">
+          Experience natural, lifelike audio and exceptional build quality made
+          for the passionate music enthusiast.
+        </p>
+        <button
+          onClick={() => router.push(`/headphones/xx99-mark-one-headphones`)}
+          className="font-bold text-sm leading-5 tracking-wide uppercase text-white bg-orange w-40 h-12 hover:bg-lightOrange   "
+        >
+          see product
+        </button>
+      </div>
+    </div>
+  );
 }
