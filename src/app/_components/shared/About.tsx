@@ -1,5 +1,3 @@
-import { FadeInLeftSection } from "@/app/_animations/FadeInLeftSection";
-import { FadeInRightSection } from "@/app/_animations/FadeInRightSection";
 import Image from "next/image";
 
 export default function About() {
