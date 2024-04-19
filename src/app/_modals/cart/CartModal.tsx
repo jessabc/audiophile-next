@@ -14,8 +14,8 @@ export default function CartModal() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const cart = useAppSelector((state) => state.cart.value);
-  const cartElements = cart.map((product) => (
-    <CartProduct key={product.id} product={product} />
+  const cartElements = cart.map((product, index) => (
+    <CartProduct key={index} product={product} />
   ));
 
   function checkout() {

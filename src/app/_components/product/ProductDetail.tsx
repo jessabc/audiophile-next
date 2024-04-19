@@ -53,12 +53,11 @@ export default function ProductDetail({ product }: Props) {
       cart.length > 0
         ? cart.find((cartProduct) => cartProduct.slug === product.slug)
         : null;
-
     if (productAlreadyInCart) {
       const updatedCart = cart.map((cartProduct) =>
         cartProduct.slug === product.slug
-          ? { ...product, quantity: count }
-          : product
+          ? { ...cartProduct, quantity: count }
+          : cartProduct
       );
       dispatch(updateProductQuantityInCart(updatedCart as ProductInCart[]));
     } else {
