@@ -10,9 +10,6 @@ import {
 import OtherProductYouMayLike from "./OtherProductYouMayLike";
 import ItemAddedModal from "../../_modals/itemAdded/ItemAddedModal";
 import Image from "next/image";
-import { FadeInLeftSection } from "../../_animations/FadeInLeftSection";
-import { FadeInRightSection } from "../../_animations/FadeInRightSection";
-import { FadeInBottomSection } from "../../_animations/FadeInBottomSection";
 import { useRouter } from "next/navigation";
 
 interface Props {
