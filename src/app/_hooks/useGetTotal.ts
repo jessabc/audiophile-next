@@ -1,17 +1,15 @@
-import { useAppSelector } from '@/app/_redux/hooks'
-
+import { useAppSelector } from "@/app/_redux/hooks";
 
 export function useGetTotal() {
+  const cart = useAppSelector((state) => state.cart.value);
 
-    const cart = useAppSelector(state => state.cart.value)
+  function getTotal() {
+    let total = cart.reduce((acc, curr) => {
+      return acc + curr.quantity! * curr.price;
+    }, 0);
 
-    function getTotal() {
-        let total =  cart.reduce((acc, curr) => {
-            return acc + (curr.quantity! * curr.price)
-        }, 0)
-        
-        return total
-    }
+    return total;
+  }
 
-    return getTotal()
+  return getTotal();
 }
